@@ -1,0 +1,11 @@
+        case .changeShape(let action, id: let id):
+            newCollage = changeShape(action, id: id, in: newCollage)
+            
+        case .addText(let text):
+            newCollage.texts.append(text)
+protocol GestureReducerProtocol {
+    mutating func reduce(_ currentState: AppState,
+                         _ action: GestureType) -> AppState
+}
+
+struct GestureReducer: GestureReducerProtocol {
